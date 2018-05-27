@@ -1,18 +1,22 @@
-# moxios [![build status](https://img.shields.io/travis/mzabriskie/moxios.svg?style=flat-square)](https://travis-ci.org/mzabriskie/moxios)
-
 Mock [axios](https://github.com/mzabriskie/axios) requests for testing
+
+## About the fork
+
+The original repository was not maintained as often and had pending pull requests
+for a while. I'll try my best to merge this back into it, if the original author
+wishes so.
 
 ## Installing
 
 ```bash
-$ npm install moxios --save-dev
+$ npm install @anilanar/moxios --save-dev
 ```
 
 ## Example
 
 ```js
 import axios from 'axios'
-import moxios from 'moxios'
+import moxios from '@anilanar/moxios'
 import sinon from 'sinon'
 import { equal } from 'assert'
 

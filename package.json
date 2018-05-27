@@ -1,5 +1,5 @@
 {
-  "name": "moxios",
+  "name": "@anilanar/moxios",
   "version": "0.4.0",
   "description": "Mock axios requests for testing",
   "main": "dist/moxios.js",
@@ -16,7 +16,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mzabriskie/moxios.git"
+    "url": "git+https://github.com/anilanar/moxios.git"
   },
   "keywords": [
     "axios",
@@ -25,12 +25,12 @@
     "mock",
     "mocking"
   ],
-  "author": "Matt Zabriskie",
+  "author": "Anil Anar",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/mzabriskie/moxios/issues"
+    "url": "https://github.com/anilanar/moxios/issues"
   },
-  "homepage": "https://github.com/mzabriskie/moxios#readme",
+  "homepage": "https://github.com/anilanar/moxios#readme",
   "peerDependencies": {
     "axios": ">= 0.13.0"
   },
