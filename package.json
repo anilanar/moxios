@@ -1,6 +1,6 @@
 {
   "name": "@anilanar/moxios",
-  "version": "0.6.0",
+  "version": "0.7.0",
   "description": "Mock axios requests for testing",
   "main": "./dist/moxios.js",
   "types": "./index.d.ts",
