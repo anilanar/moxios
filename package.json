@@ -12,10 +12,10 @@
     "postversion": "git push origin master && git push origin --tags"
   },
   "files": [
-    "./dist/",
-    "./index.d.ts",
-    "./README.md",
-    "./LICENSE"
+    "dist/",
+    "index.d.ts",
+    "README.md",
+    "LICENSE"
   ],
   "repository": {
     "type": "git",
