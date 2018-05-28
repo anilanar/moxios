@@ -1,36 +1,39 @@
-var webpack = require('webpack')
-var fileName = require('./package').name
-var plugins = []
+var webpack = require("webpack");
+var fileName = "moxios";
 
-if (process.env.MINIFY) {
-  fileName += '.min'
-  plugins.push(
-    new webpack.optimize.UglifyJsPlugin()
-  )
+if (process.env.NODE_ENV === "production") {
+  fileName += ".min";
 }
 
 module.exports = {
-  devtool: 'source-map',
-  entry: './index.js',
+  mode: process.env.NODE_ENV === "production" ? "production" : "development",
+  devtool: "source-map",
+  entry: "./index.js",
   output: {
-    filename: 'dist/' + fileName + '.js',
-    library: 'moxios',
-    libraryTarget: 'umd'
+    filename: fileName + ".js",
+    library: "moxios",
+    libraryTarget: "umd"
   },
   externals: {
-    'axios': 'axios'
+    axios: "axios"
+  },
+  optimization: {
+    minimize: process.env.NODE_ENV === "production"
   },
   module: {
-    loaders: [
+    rules: [
       {
         test: /\.js$/,
         exclude: /node_modules/,
-        loader: 'babel',
-        query: {
-          presets: ['es2015'],
-          plugins: ['add-module-exports']
-        }
+        use: [
+          {
+            loader: "babel-loader",
+            options: {
+              presets: ["es2015"]
+            }
+          }
+        ]
       }
     ]
   }
-}
+};

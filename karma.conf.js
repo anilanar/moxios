@@ -33,15 +33,16 @@ module.exports = function(config) {
     concurrency: Infinity,
 
     webpack: {
+      mode: 'development',
       cache: true,
       devtool: 'inline-source-map',
       module: {
-        loaders: [
+        rules: [
           {
             test: /\.js$/,
             exclude: /node_modules/,
-            loader: 'babel',
-            query: {
+            loader: 'babel-loader',
+            options: {
               presets: ['es2015']
             }
           }
