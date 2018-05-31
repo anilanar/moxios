@@ -225,16 +225,17 @@ class Request {
   }
 
   /**
-   * Respond to this request with a timeout result
+   * Respond to this request with a timeout error
    *
-   * @return {Promise} A Promise that rejects with a timeout result
+   * @return {Promise} A Promise that resolves (not rejects) with a timeout
+   * error
    */
   respondWithTimeout() {
-    let response = new Response(this, createTimeout(this.config))
-    settle(this.resolve, this.reject, response)
+    let error = createError('timeout of ' + this.config.timeout + 'ms exceeded', this.config, 'ECONNABORTED', this)
+    this.reject(error)
     return new Promise(function(resolve, reject) {
       moxios.wait(function() {
-        reject(response)
+        resolve(error)
       })
     })
   }

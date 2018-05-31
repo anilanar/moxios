@@ -108,8 +108,26 @@ describe('moxios', function () {
 
         moxios.wait(function() {
           let request = moxios.requests.mostRecent()
-          request.respondWithTimeout().catch(function(err) {
+          request.respondWithTimeout().then(function(err) {
             equal(err.code, 'ECONNABORTED')
+            done()
+          })
+        })
+      })
+    })
+
+    it('should reject requests on timeout', function(done) {
+
+      moxios.uninstall()
+
+      moxios.withMock(function() {
+        axios.get('/users/12345').then(onFulfilled).catch(onRejected)
+
+        moxios.wait(function() {
+          let request = moxios.requests.mostRecent()
+          request.respondWithTimeout().then(function(err) {
+            equal(onRejected.calledWith(err), true)
+            equal(onFulfilled.called, false)
             done()
           })
         })
