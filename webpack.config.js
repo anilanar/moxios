@@ -1,6 +1,7 @@
 var webpack = require("webpack");
 
 module.exports = {
+  target: 'node',
   mode: "development",
   devtool: "source-map",
   entry: "./index.js",
